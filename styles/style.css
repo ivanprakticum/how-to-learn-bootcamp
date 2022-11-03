@@ -1,3 +1,4 @@
+/* Контейнер всей страницы */
 .page {
   min-width: 1100px;
   /* мы ещё не умеем делать мобильную версию сайта, */
@@ -9,6 +10,7 @@
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
+/* Заголовок сайта */
 .header {
   height: 100vh;
   min-height: 600px;
@@ -28,4 +30,34 @@
   color: white;
   margin-right: 0;
   margin-top: 80px;
+}
+
+/* Контейнер основного содержимого страницы */
+.content{
+
+}
+
+/* Блок описания */
+.description{
+
+}
+
+/* Блок digits */
+.digits{
+
+}
+
+/* Блок feynman */
+.feynman{
+
+}
+
+/* Блок kaufman */
+.kaufman{
+
+}
+
+/* Подвал сайта */
+.footer{
+
 }
