@@ -17,6 +17,10 @@
   font-weight: 700;
 }
 
+.link {
+  color: #2f80ed;
+}
+
 /* Контейнер всей страницы */
 .page {
   min-width: 1100px;
@@ -42,6 +46,9 @@
   height: 100vh;
   min-height: 600px;
   max-height: 756px;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
   /* выше установили ограничения для секции */
 }
 
@@ -54,7 +61,7 @@
 
 .header__title{
   width: 730px;
-  z-index: 1;
+  z-index: 3;
   margin-left: 64px;
   line-height: 96px;
   font-size: 102px;
@@ -63,7 +70,7 @@
 
 .header__subtitle{
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   left: 64px;
   bottom: 30px;
   width: 388px;
@@ -72,14 +79,11 @@
   font-weight: normal;
 }
 
-.header__link{
-  color: blue;
-}
-
 .header__main-illustration{
   position: absolute;
   bottom: 0;
   right: 0;
+  z-index: 1;
   width: 765px;
   height: 608px;
 }
@@ -89,10 +93,10 @@
   position: absolute;
   right: 0;
   top: 64px;
-  z-index: -1;
+  z-index: 0;
   height: 568px;
   width: 568px;
-  background-color: blue;
+  background-color: #2f80ed;
 }
 
 /* и элемента с модификатором вида ключ-значение */
@@ -105,30 +109,69 @@
 
 /* Контейнер основного содержимого страницы */
 .content{
-
+  margin: 0;
+  padding: 0;
 }
 
 /* Блок описания */
 .description{
-
+  display: flex;
+  margin-top: 100px;
+  padding: 0;
+}
+.description__two-columns{
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+  min-width: 784px;
+  width: 80%;
+}
+.two-columns__brief{
+  width: 175px;
+  color: #2f80ed;
+  line-height: 1.2;
+  font-size: 18px;
+  font-weight: normal;
+}
+.two-columns__main-text{
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  width: 80%;
+}
+.two-columns__paragraph{
+  margin: 0;
+  line-height: 34px;
+  font-size: 24px;
+  font-weight: normal;
+}
+.two-columns__span-accent{
+  line-height: 34px;
+  font-size: 24px;
+  font-weight: 600;
 }
 
 /* Блок digits */
 .digits{
-
+  margin-top: 100px;
 }
 
 /* Блок feynman */
 .feynman{
-
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
 }
 
 /* Блок kaufman */
 .kaufman{
-
+  margin: 0;
+  padding: 0;
+  background-color: #1f1f1f;
 }
 
 /* Подвал сайта */
 .footer{
-
+  margin: 0;
+  padding: 0;
 }
