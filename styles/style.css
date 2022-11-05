@@ -35,6 +35,14 @@
   height: 32px;
 }
 
+/* Базовое форматирование ссылок */
+.link {
+  color: #2f80ed;
+}
+.link::after{
+  content: "→";
+}
+
 /* Заголовок сайта */
 .header {
   display: flex;
@@ -75,9 +83,6 @@
   font-weight: normal;
 }
 
-.header_link {
-  color: #2f80ed;
-}
 /*
 "Элемент позиционируется относительно ближайшего позиционированного предка.
 То есть браузер идёт вверх по дереву элементов и ищет ближайшего
@@ -234,7 +239,6 @@
   /* z-index: 2; */
 }
 .feynman__link{
-  color: #2f80ed;
   position: absolute;
   top: 50%;
   right: 48px;
