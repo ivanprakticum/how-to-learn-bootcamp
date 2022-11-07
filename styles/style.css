@@ -65,7 +65,7 @@
   /* выше установили ограничения для секции */
 }
 
-.header__logo{
+.logo_place_header{
   background-image: url(../images/logo_place_header.svg);
   position: absolute;
   top: 30px;
@@ -269,10 +269,10 @@
 
 /* Блок kaufman */
 .kaufman{
-  /* background-color: #1f1f1f; */
   padding-top: 90px;
   padding-bottom: 90px;
   position: relative;
+  overflow: hidden;
 }
 /*
 Выяснить, почему изображение перекрывает заголовки, хотя z-индекс выставлен.
@@ -297,12 +297,12 @@
   z-index: 1;
 }
 /* Переопределяем значения по умолчанию из класса .table */
-.kaufman__table{
+.table_type_kaufman{
   row-gap: 80px;
   padding-top: 80px;
 }
 /* Переопределяем значения по умолчанию из класса .table__cell */
-.kaufman__table__cell{
+.table__cell_type_kaufman{
   width: 200px;
   z-index: 1;
 }
@@ -312,9 +312,74 @@
   right: -210px;
   width: 877px;
   height: 877px;
+  background-image: url("../images/kaufman-triangle.svg");
   z-index: 0;
+  /* background-size: cover;
+  z-index: -1; */
 }
 
 /* Подвал сайта */
 .footer{
+  display: flex;
+  background-color: #1f1f1f;
+  min-height: 350px;
+  /* box-sizing: border-box; */
+}
+.footer__columns{
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 60px;
+  padding-bottom: 40px;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.footer__column{
+}
+.footer__column_content_copyright{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 711px;
+  justify-content: space-between;
+}
+.footer__column_content_info{
+}
+.footer__column_content_social{
+}
+.logo_place_footer{
+  background-image: url("../images/logo_place_footer.svg");
+}
+.footer__author{
+  line-height: 25px;
+  font-size: 18px;
+  font-style: normal;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+.footer__column_heading{
+  line-height: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  padding-bottom: 20px;
+}
+.footer__column_links{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 16px 0;
+}
+.footer__social_icon{
+  width: 16px;
+  height: 16px;
+}
+.footer__column_link{
+  display: block;
+  color: white;
+  text-decoration: none;
+  line-height: 30px;
+  font-size: 18px;
+  font-weight: normal;
 }
