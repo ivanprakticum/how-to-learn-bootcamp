@@ -29,6 +29,15 @@
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
+.theme-dark{
+  background-color: #1f1f1f;
+  color: white;
+}
+
+.centered-block{
+  margin: 0 auto;
+}
+
 /* Логотип */
 .logo{
   width: 228px;
@@ -112,12 +121,12 @@
 }
 
 /* и элемента с модификатором вида ключ-значение */
-.table__cell_theme_dark {
+/* .table__cell_theme_dark {
   width: 200px;
   color: white;
   margin-right: 0;
   margin-top: 80px;
-}
+} */
 
 /* Контейнер основного содержимого страницы */
 .content{
@@ -161,27 +170,7 @@
   font-weight: 600;
 }
 
-/* Блок digits */
-.digits{
-  margin-top: 100px;
-}
-.digits__section-title{
-  width: 60%;
-  margin: 0 auto;
-  text-align: center;
-  padding-bottom: 20px;
-  line-height: 1.15;
-  font-size: 60px;
-  font-weight: 600;
-}
-.digits__section-subtitle{
-  width: 60%;
-  margin: 0 auto;
-  text-align: center;
-  line-height: 34px;
-  font-size: 24px;
-  font-weight: normal;
-}
+/* Общие свойства для всех таблиц (digits, kaufman) */
 .table{
   display: flex;
   flex-wrap: wrap;
@@ -190,6 +179,23 @@
   padding-top: 60px;
   width: 1100px;
   margin: 0 auto;
+}
+.table__section-title{
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 20px;
+  line-height: 1.15;
+  font-size: 60px;
+  font-weight: 600;
+}
+.table__section-subtitle{
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 34px;
+  font-size: 24px;
+  font-weight: normal;
 }
 .table__cell{
   width: 250px;
@@ -205,6 +211,11 @@
   font-size: 18px;
   font-weight: normal;
   margin-top: 20px;
+}
+
+/* Блок digits */
+.digits{
+  margin-top: 100px;
 }
 
 /* Блок feynman */
@@ -258,7 +269,50 @@
 
 /* Блок kaufman */
 .kaufman{
-  background-color: #1f1f1f;
+  /* background-color: #1f1f1f; */
+  padding-top: 90px;
+  padding-bottom: 90px;
+  position: relative;
+}
+/*
+Выяснить, почему изображение перекрывает заголовки, хотя z-индекс выставлен.
+*/
+.kaufman__section-title{
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 20px;
+  line-height: 1.15;
+  font-size: 60px;
+  font-weight: 600;
+  z-index: 1;
+}
+.kaufman__section-subtitle{
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 34px;
+  font-size: 24px;
+  font-weight: normal;
+  z-index: 1;
+}
+/* Переопределяем значения по умолчанию из класса .table */
+.kaufman__table{
+  row-gap: 80px;
+  padding-top: 80px;
+}
+/* Переопределяем значения по умолчанию из класса .table__cell */
+.kaufman__table__cell{
+  width: 200px;
+  z-index: 1;
+}
+.kaufman_triangle{
+  position: absolute;
+  top: 0;
+  right: -210px;
+  width: 877px;
+  height: 877px;
+  z-index: 0;
 }
 
 /* Подвал сайта */
