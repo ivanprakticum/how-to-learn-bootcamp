@@ -21,29 +21,29 @@
     </header>
     <main class="content">
         <section class="description">
-          <div class="description__two-columns">
-            <h3 class="two-columns__brief">Главные проблемы в обучении</h3>
+          <div class="two-columns">
+            <h2 class="two-columns__brief">Главные проблемы в обучении</h2>
             <div class="two-columns__main-text">
-              <p class="two-columns__paragraph">
+              <article class="two-columns__paragraph">
                 Ни в школе, ни в институте нас не учат тому, как правильно изучать материал.
                 Мы готовимся к экзаменам и учим билеты. Мы тренируемся решать однообразные задачи,
                 чтобы лучше сдать тест, но часто в итоге это не дает нам реального знания.
                 Зубрежка быстро выветривается и не приносит пользы.
-              </p>
-              <p class="two-columns__paragraph">
+              </article>
+              <article class="two-columns__paragraph">
                 <span class="two-columns__span-accent">Вывод:</span>
                 учиться тоже нужно уметь, но почему-то этому мало где учат. Что с этим делать?
-              </p>
-              <p class="two-columns__paragraph">
+              </article>
+              <article class="two-columns__paragraph">
                 Конкретные техники и упражнения помогают изменить подход к обучению,
                 сделать его эффективным и захватывающим. Эти же техники применяются на примере обучения в Практикуме.
-              </p>
+              </article>
             </div>
           </div>
         </section>
         <section class="digits">
-          <h2 class="table__section-title">Цифры и факты</h2>
-          <h3 class="table__section-subtitle">Про учебу и мозг</h3>
+          <h2 class="section-title">Цифры и факты</h2>
+          <h3 class="section-subtitle">Про учебу и мозг</h3>
           <div class="table">
             <div class="table__cell">
               <h4 class="table__heading">86 миллиардов</h4>
@@ -87,12 +87,38 @@
         </section>
         <section class="feynman">
           <h2 class="feynman__title">Метод Фейнмана</h2>
-          <h3 class="feynman__subtitle">Выучить и не забыть</h3>
+          <!-- Для подзаголовков хорошей практикой является использование элемента <p> -->
+          <p class="feynman__subtitle">Выучить и не забыть</p>
           <a class="link feynman__link" href="#">Подробнее</a>
         </section>
+        <!-- TODO Сделано замечание "Необходимо добавить модификатор сложного типа описанный в брифе"
+          Однако в этом случае придется создавать несколько модификаторов с одинаковым
+          содержимым для темной темы. Был сознательно создан отдельный класс
+          .theme-dark{
+            background-color: #1f1f1f;
+            color: white;
+          }
+          который применяет темную тему ко все элементам, где это нужно,
+          не повторяя определения свойств.
+          Повторное определение свойств не требуется, поскольку параметры
+          темной темы унаследованы от элемента <section>
+            <h2 class="section-title">Принципы обучения</h2>
+            <p class="section-subtitle">От Джоша Кауфмана</p>
+        -->
         <section class="kaufman theme-dark">
-            <h2 class="table__section-title">Принципы обучения</h2>
-            <h3 class="table__section-subtitle">От Джоша Кауфмана</h3>
+            <h2 class="section-title">Принципы обучения</h2>
+            <p class="section-subtitle">От Джоша Кауфмана</p>
+            <!--
+              TODO Сделано замечание "Вместо table_type_kaufman необходимо добавить
+              модификатор сложного типа описанный в брифе". table_type_kaufman
+              переопределяет свойства таблицы из класса .table
+              .table_type_kaufman{
+                row-gap: 80px;
+                padding-top: 80px;
+              }
+              Эти свойства не имеют отношения к темной теме.
+              Аналогичная ситуация и с table__cell_type_kaufman
+            -->
             <div class="table table_type_kaufman">
               <div class="table__cell table__cell_type_kaufman">
                 <h4 class="table__heading">1</h4>
@@ -136,7 +162,7 @@
               </div>
             </div>
             <!-- <img class="kaufman_triangle" src="images/kaufman-triangle.svg"> -->
-            <div class="kaufman_triangle"></div>
+            <div class="kaufman__triangle"></div>
         </section>
     </main>
     <footer class="footer theme-dark">
@@ -145,38 +171,42 @@
           <div class="logo logo_place_footer"></div>
           <p class="footer__author">&copy;Иван Диканев</p>
         </div>
-        <div class="footer__column footer__column_content_info">
-          <h3 class="footer__column_heading">О практикуме</h3>
-          <ul class="footer__column_links">
+        <!--
+          Этим элементом принято выделять список из ссылок,
+          отвечающий за навигацию по сайту и не только.
+        -->
+        <nav class="footer__column footer__column_content_info">
+          <h3 class="footer__column-heading">О практикуме</h3>
+          <ul class="footer__column-links">
             <li>
-              <a class="footer__column_link" href="#">Главная</a>
+              <a class="footer__column-link" href="#">Главная</a>
             </li>
             <li>
-              <a class="footer__column_link" href="#">Концепция</a>
+              <a class="footer__column-link" href="#">Концепция</a>
             </li>
             <li>
-              <a class="footer__column_link" href="#">Наставники</a>
+              <a class="footer__column-link" href="#">Наставники</a>
             </li>
           </ul>
-        </div>
+        </nav>
         <div class="footer__column footer__column_content_social">
-          <h3 class="footer__column_heading">Соцсети</h3>
-          <ul class="footer__column_links">
+          <h3 class="footer__column-heading">Соцсети</h3>
+          <ul class="footer__column-links">
             <li>
-              <a class="footer__column_link" href="#">
-                <img class="footer__social_icon" src="images/youtube-icon.svg" alt="Иконка YouTube">
+              <a class="footer__column-link" href="#" target="_blank">
+                <img class="footer__social-icon" src="images/youtube-icon.svg" alt="Иконка YouTube">
                 YouTube
               </a>
             </li>
             <li>
-              <a class="footer__column_link" href="#">
-                <img class="footer__social_icon" src="images/vk_color_white.svg" alt="Иконка ВКонтакте">
+              <a class="footer__column-link" href="#" target="_blank">
+                <img class="footer__social-icon" src="images/vk_color_white.svg" alt="Иконка ВКонтакте">
                 ВКонтакте
               </a>
             </li>
             <li>
-              <a class="footer__column_link" href="#">
-                <img class="footer__social_icon" src="images/tiktok-icon.svg" alt="Иконка TikTok">
+              <a class="footer__column-link" href="#" target="_blank">
+                <img class="footer__social-icon" src="images/tiktok-icon.svg" alt="Иконка TikTok">
                 TikTok
               </a>
             </li>

@@ -1,22 +1,3 @@
-@font-face {
-  src: url(https://code.s3.yandex.net/web-code/fonts/PTMono-Regular.woff);
-  font-family: 'PTMono';
-  font-style: normal;
-  font-weight: 400;
-}
-@font-face {
-  src: url(https://code.s3.yandex.net/web-code/fonts/Lora-Regular.woff);
-  font-family: 'Lora';
-  font-style: normal;
-  font-weight: 400;
-}
-@font-face {
-  src: url(https://code.s3.yandex.net/web-code/fonts/PlayfairDisplay-Bold.woff);
-  font-family: 'Playfair Display';
-  font-style: bold;
-  font-weight: 700;
-}
-
 /* Контейнер всей страницы */
 .page {
   min-width: 1100px;
@@ -45,6 +26,9 @@
 }
 
 /* Базовое форматирование ссылок */
+a {
+  text-decoration: none;
+}
 .link {
   color: #2f80ed;
 }
@@ -53,8 +37,10 @@
 }
 
 /* Заголовок сайта */
+/* position != default & z-index != default создает новый котекст наложения */
 .header {
   display: flex;
+  position: relative;
   align-items: center;
   height: 100vh;
   min-height: 600px;
@@ -62,6 +48,7 @@
   margin: 0;
   padding: 0;
   background-color: #f2f2f2;
+  z-index: 1;
 }
 
 .logo_place_header{
@@ -73,8 +60,7 @@
 
 .header__title{
   width: 730px;
-  z-index: 3;
-  margin-left: 64px;
+  margin: 0 0 0 64px;
   line-height: 96px;
   font-size: 102px;
   font-weight: 600;
@@ -82,10 +68,10 @@
 
 .header__subtitle{
   position: absolute;
-  z-index: 2;
   left: 64px;
   bottom: 30px;
-  width: 388px;
+  max-width: 388px;
+  margin: 0;
   line-height: 25px;
   font-size: 18px;
   font-weight: normal;
@@ -95,19 +81,26 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  z-index: 1;
   width: 765px;
   height: 608px;
+
+  /* Необходимо, чтобы картинка заполняла свой контейнер,
+   не меняя своих пропорций. Если контейнер по ширине больше,
+   то по умолчанию картинка выравнится по левому краю  */
+  object-fit: contain;
+  object-position: right;
+
+  z-index: -1;
 }
 
 .header__square-pic {
   position: absolute;
   right: 0;
   top: 64px;
-  z-index: 0;
   height: 568px;
   width: 568px;
   background-color: #2f80ed;
+  z-index: -2;
 }
 
 /* и элемента с модификатором вида ключ-значение */
@@ -128,7 +121,7 @@
   display: flex;
   margin-top: 100px;
 }
-.description__two-columns{
+.two-columns{
   display: flex;
   margin: 0 auto;
   justify-content: space-between;
@@ -136,6 +129,7 @@
   width: 80%;
 }
 .two-columns__brief{
+  margin: 0;
   width: 175px;
   color: #2f80ed;
   line-height: 1.2;
@@ -170,7 +164,7 @@
   width: 1100px;
   margin: 0 auto;
 }
-.table__section-title{
+.section-title{
   width: 60%;
   margin: 0 auto;
   text-align: center;
@@ -179,7 +173,7 @@
   font-size: 60px;
   font-weight: 600;
 }
-.table__section-subtitle{
+.section-subtitle{
   width: 60%;
   margin: 0 auto;
   text-align: center;
@@ -195,12 +189,13 @@
   line-height: 1.15;
   font-size: 24px;
   font-weight: 600;
+  margin: 0;
 }
 .table__text{
   line-height: 1.2;
   font-size: 18px;
   font-weight: normal;
-  margin-top: 20px;
+  margin: 20px 0 0 0;
 }
 
 /* Блок digits */
@@ -209,14 +204,18 @@
 }
 
 /* Блок feynman */
+/* TODO Сделано замечание, что нужно использовать внутренний отступ
+вместо внешнего, однако в этом случае фон сверху на 100 пикселей будет
+серым, а по брифу он белый */
 .feynman{
   position: relative;
+  box-sizing: border-box; /* Внутренние отступы не учитываются по дефолту при расчёте размера блока */
   background-image: url(../images/feynman.png);
   background-position: bottom left;
   background-repeat: no-repeat;
   background-color: #f2f2f2;
   margin-top: 100px;
-  height: 890px;
+  min-height: 890px; /* Чтобы отображение не поплыло, используем min-height всесто height */
 }
 .feynman__title{
   margin: 0 auto;
@@ -238,6 +237,9 @@
   position: absolute;
   top: 50%;
   right: 48px;
+  line-height: 51px;
+  font-size: 36px;
+  font-weight: normal;
 }
 .feynman__illustration{
   position: absolute;
@@ -253,6 +255,7 @@
   padding-bottom: 90px;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 .kaufman__section-title{
   width: 60%;
@@ -262,7 +265,6 @@
   line-height: 1.15;
   font-size: 60px;
   font-weight: 600;
-  z-index: 1;
 }
 .kaufman__section-subtitle{
   width: 60%;
@@ -271,7 +273,6 @@
   line-height: 34px;
   font-size: 24px;
   font-weight: normal;
-  z-index: 1;
 }
 /* Переопределяем значения по умолчанию из класса .table */
 .table_type_kaufman{
@@ -281,16 +282,18 @@
 /* Переопределяем значения по умолчанию из класса .table__cell */
 .table__cell_type_kaufman{
   width: 200px;
-  z-index: 1;
 }
-.kaufman_triangle{
+.kaufman__triangle{
   position: absolute;
   top: 0;
   right: -210px;
   width: 877px;
   height: 877px;
   background-image: url("../images/kaufman-triangle.svg");
-  z-index: 0;
+  background-size: contain;
+  background-position: right;
+  background-repeat: no-repeat;
+  z-index: -1;
 }
 
 /* Подвал сайта */
@@ -331,29 +334,30 @@
   margin-top: 18px;
   margin-bottom: 18px;
 }
-.footer__column_heading{
+.footer__column-heading{
   line-height: 30px;
   font-size: 18px;
   font-weight: 600;
   margin: 0;
   padding-bottom: 20px;
 }
-.footer__column_links{
+.footer__column-links{
   display: flex;
   flex-direction: column;
-  row-gap: 10px;
+  /* row-gap: 10px; */
   list-style: none;
   margin: 0;
   padding: 0 0 16px 0;
 }
-.footer__social_icon{
+.footer__social-icon{
+  display: inline-block;
   width: 16px;
   height: 16px;
+  margin: 0 10px 0 0;
 }
-.footer__column_link{
+.footer__column-link{
   display: block;
   color: white;
-  text-decoration: none;
   line-height: 30px;
   font-size: 18px;
   font-weight: normal;
